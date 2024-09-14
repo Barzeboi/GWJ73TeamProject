@@ -1,11 +1,40 @@
-[gd_scene load_steps=2 format=3 uid="uid://bkb6rxx8gtd4x"]
+[gd_scene load_steps=8 format=4 uid="uid://bkb6rxx8gtd4x"]
+
+[ext_resource type="Texture2D" uid="uid://d0rilnjxdcs03" path="res://Sprites/Placeholder/Board.png" id="1_uhsj1"]
+[ext_resource type="Texture2D" uid="uid://ccwpvwfn325l1" path="res://Sprites/Placeholder/Tetrominoes.png" id="2_xuedd"]
+[ext_resource type="Script" path="res://Scenes/tetrominoes.gd" id="3_3fpvb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6fwb2"]
+texture = ExtResource("1_uhsj1")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_mj6ek"]
 tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_6fwb2")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_browh"]
+texture = ExtResource("2_xuedd")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_vv6n7"]
+tile_size = Vector2i(32, 32)
+sources/0 = SubResource("TileSetAtlasSource_browh")
 
 [node name="World" type="Node2D"]
 
 [node name="Board" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAACABQAAAAAAAAAAAACABMAAAAAAAAAAAACABIAAAAAAAAAAAACABEAAAAAAAAAAAACABAAAAAAAAAAAAACAA8AAAAAAAAAAAACAA4AAAAAAAAAAAACAA0AAAAAAAAAAAACAAwAAAAAAAAAAAACAAsAAAAAAAAAAAACAAoAAAAAAAAAAAACAAkAAAAAAAAAAAACAAgAAAAAAAAAAAACAAcAAAAAAAAAAAACAAYAAAAAAAAAAAACAAUAAAAAAAAAAAACAAQAAAAAAAAAAAACAAMAAAAAAAAAAAACAAIAAAAAAAAAAAACAAEAAAAAAAAAAAACAAAAAAAAAAAAAAACABUAAAAAAAAAAAADABUAAAAAAAAAAAAEABUAAAAAAAAAAAAFABUAAAAAAAAAAAAGABUAAAAAAAAAAAAHABUAAAAAAAAAAAAIABUAAAAAAAAAAAAJABUAAAAAAAAAAAAKABUAAAAAAAAAAAALABUAAAAAAAAAAAAMABUAAAAAAAAAAAANABUAAAAAAAAAAAAOABUAAAAAAAAAAAAPABUAAAAAAAAAAAAPAAEAAAAAAAAAAAAPAAIAAAAAAAAAAAAPAAMAAAAAAAAAAAAPAAQAAAAAAAAAAAAPAAUAAAAAAAAAAAAPAAYAAAAAAAAAAAAPAAcAAAAAAAAAAAAPAAgAAAAAAAAAAAAPAAkAAAAAAAAAAAAPAAoAAAAAAAAAAAAPAAsAAAAAAAAAAAAPAAwAAAAAAAAAAAAPAA0AAAAAAAAAAAAPAA4AAAAAAAAAAAAPAA8AAAAAAAAAAAAPABAAAAAAAAAAAAAPABEAAAAAAAAAAAAPABIAAAAAAAAAAAAPABMAAAAAAAAAAAAPABQAAAAAAAAAAAA=")
 tile_set = SubResource("TileSet_mj6ek")
 
-[node name="Tetrominoes" type="TileMapLayer" parent="."]
+[node name="Active_Layer" type="TileMapLayer" parent="."]
+tile_set = SubResource("TileSet_vv6n7")
+script = ExtResource("3_3fpvb")
