@@ -1,4 +1,4 @@
-extends TileMapLayer
+extends Node2D
 
 #Tetrominoes
 #i = Line Piece
@@ -49,7 +49,11 @@ var shapes_full := shapes.duplicate()
 
 #Grid Variables
 const COL: int = 12
-const ROWS: int = 20
+const ROWS: int = 24
+
+#TileMap variables
+@onready var board_layer: TileMapLayer = $BoardLayer
+@onready var active_layer: TileMapLayer = $ActiveLayer
 
 #Movement Variables
 const directions := [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.DOWN]
@@ -82,17 +86,19 @@ func _new_game():
 	_create_piece()
 
 func _process(delta: float) -> void:
+	print(cur_pos)
 	if Input.is_action_pressed("Left"):
 		steps[0] += 10
-	if Input.is_action_pressed("Right"):
+	elif Input.is_action_pressed("Right"):
 		steps[1] += 10
-	if Input.is_action_pressed("Down"):
+	elif Input.is_action_pressed("Down"):
 		steps[2] += 10
 	#apply downward movement every frame
 	steps[2] += speed
-	if steps[2] > steps_req:
-		_move_pieces(Vector2i.DOWN)
-		steps[2] = 0
+	for f in range(steps.size()):
+		if steps[f] > steps_req:
+			_move_pieces(directions[f])
+			steps[f] = 0
 
 #Chooses what type of piece ot draw, it also randomizes though shuffling the shapes array and removing a piece once it has been called
 func _pick_piece():
@@ -114,12 +120,25 @@ func _create_piece():
 
 func _clear_piece():
 	for f in active_piece:
-		erase_cell(cur_pos + f)
+		active_layer.erase_cell(cur_pos + f)
+		
 func _draw_piece(piece, pos, atlas):
 	for f in piece:
-		set_cell(pos + f, tile_id, atlas)
+		active_layer.set_cell(pos + f, tile_id, atlas)
 		
 func _move_pieces(dir):
-	_clear_piece()
-	cur_pos += dir
-	_draw_piece(active_piece, cur_pos, piece_atlas)
+	if _can_move(dir):
+		_clear_piece()
+		cur_pos += dir
+		_draw_piece(active_piece, cur_pos, piece_atlas)
+
+func _can_move(dir):
+	#check if there is space to move
+	var cm = true
+	for f in active_piece:
+		if not _is_free(f + cur_pos + dir):
+			cm = false
+	return cm 
+
+func _is_free(pos):
+	return board_layer.get_cell_source_id(pos) == -1
