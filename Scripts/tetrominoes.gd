@@ -48,7 +48,7 @@ var shapes := [l, t, o, z, s, i, j]
 var shapes_full := shapes.duplicate()
 
 #Grid Variables
-const COL: int = 12
+const COLS: int = 12
 const ROWS: int = 24
 
 #TileMap variables
@@ -59,7 +59,7 @@ const ROWS: int = 24
 const directions := [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.DOWN]
 var steps : Array
 const steps_req : int = 50
-const start_pos := Vector2i(8,1)
+const start_pos := Vector2i(6,1)
 var  cur_pos : Vector2i
 var speed : float
 #Game Piece Variables
@@ -83,6 +83,8 @@ func _new_game():
 	steps = [0,0,0]
 	piece_type = _pick_piece()
 	piece_atlas = Vector2i(shapes_full.find(piece_type), 0)
+	next_piece_type = _pick_piece()
+	next_piece_atlas = Vector2i(shapes_full.find(next_piece_type), 0)
 	_create_piece()
 
 func _process(delta: float) -> void:
@@ -116,9 +118,13 @@ func _pick_piece():
 	
 func _create_piece():
 	#resets variables
+	steps = [0, 0, 0]
 	cur_pos = start_pos
 	active_piece = piece_type[rotation_index]
 	_draw_piece(active_piece, cur_pos, piece_atlas)
+	#Lets you see the next people
+	_draw_piece(next_piece_type[0], Vector2i(17, 3), next_piece_atlas)
+	
 
 func _clear_piece():
 	for f in active_piece:
@@ -141,7 +147,16 @@ func _move_pieces(dir):
 		_clear_piece()
 		cur_pos += dir
 		_draw_piece(active_piece, cur_pos, piece_atlas)
-		
+	else:
+		if dir == Vector2i.DOWN:
+			_land_piece()
+			_check_rows()
+			piece_type = next_piece_type
+			piece_atlas = next_piece_atlas
+			next_piece_type = _pick_piece()
+			next_piece_atlas = Vector2i(shapes_full.find(next_piece_type), 0)
+			_clear_panel()
+			_create_piece()
 #The following three functions prevent the piece from moving outside of the boarder
 func _can_move(dir):
 	#check if there is space to move
@@ -161,3 +176,37 @@ func _can_rotate():
 
 func _is_free(pos):
 	return board_layer.get_cell_source_id(pos) == -1
+
+func _land_piece():
+	#Removes a landed piece from the active layer and adds it to the board layer
+	for f in active_piece:
+		active_layer.erase_cell(cur_pos + f)
+		board_layer.set_cell(cur_pos + f, tile_id, piece_atlas)
+
+func _clear_panel():
+	for x in range(16, 22):
+		for y in range(2, 6):
+			active_layer.erase_cell(Vector2i(x, y))
+
+func _check_rows():
+#checks if a row is full to erase the row
+	var row : int = ROWS
+	while row > 0:
+		var count = 0
+		for f in range(COLS):
+			if not _is_free(Vector2i(f + 1, row)):
+				count += 1
+		if count == COLS:
+			_shift_rows(row)
+		else:
+			row -= 1
+			
+func _shift_rows(row):
+	var atlas
+	for f in range(row, 1, -1):
+		for j in range(COLS):
+			atlas = board_layer.get_cell_atlas_coords(Vector2i(j + 1, f  - 1))
+			if atlas == Vector2i(-1, 1):
+				board_layer.erase_cell(Vector2i(j + 1, f))
+			else:
+				board_layer.set_cell(Vector2i(j + 1, f), tile_id, atlas)
