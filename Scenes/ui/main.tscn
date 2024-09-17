@@ -1,0 +1,514 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5i43kmyvcol"]
+
+[ext_resource type="Script" path="res://Scripts/ui/main.gd" id="1_pkc8r"]
+[ext_resource type="Script" path="res://Scripts/ui/stos_button.gd" id="2_pbadk"]
+
+[sub_resource type="Gradient" id="Gradient_n0kjy"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.242188, 0.242188, 0.242188, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rttcl"]
+gradient = SubResource("Gradient_n0kjy")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wncbt"]
+texture = SubResource("GradientTexture1D_rttcl")
+
+[sub_resource type="Animation" id="Animation_wl3nf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PopupBackground:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SettingsPopup:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(199.5, 291)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsPopup:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CreditsPopup:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(199.5, 274)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CreditsPopup:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CreditsPopup:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SettingsPopup:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_5fcn4"]
+resource_name = "popup_credits"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PopupBackground:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.623529)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CreditsPopup:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.133333, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 0.0412346),
+"update": 0,
+"values": [Vector2(199.5, 123), Vector2(199.5, 123), Vector2(199.5, 291)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CreditsPopup:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CreditsPopup:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_kr7tc"]
+resource_name = "popup_settings"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PopupBackground:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.623529)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SettingsPopup:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 0.0412346),
+"update": 0,
+"values": [Vector2(199.5, 123), Vector2(199.5, 291)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SettingsPopup:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SettingsPopup:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.166667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_x4bqw"]
+_data = {
+"RESET": SubResource("Animation_wl3nf"),
+"popup_credits": SubResource("Animation_5fcn4"),
+"popup_settings": SubResource("Animation_kr7tc")
+}
+
+[node name="Main" type="CanvasLayer"]
+script = ExtResource("1_pkc8r")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -193.5
+offset_top = 139.0
+offset_right = 193.5
+offset_bottom = 227.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "GAME NAME"
+
+[node name="Control" type="VBoxContainer" parent="MarginContainer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.5
+offset_top = -80.0
+offset_right = 193.5
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 80
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control/Control"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_right = 50
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Control/Control/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="PlayButton" type="Button" parent="MarginContainer/Control/Control/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Play"
+script = ExtResource("2_pbadk")
+target_scene = "res://Scenes/world.tscn"
+transition_name = "load"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control/Control/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/Control/Control/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Set"
+
+[node name="CreditButton" type="Button" parent="MarginContainer/Control/Control/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Cre"
+
+[node name="ExitButton" type="Button" parent="MarginContainer/Control/Control/MarginContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "Exi"
+
+[node name="PopupControl" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PopupBackground" type="ColorRect" parent="PopupControl"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="SettingsPopup" type="PanelContainer" parent="PopupControl"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.5
+offset_top = -189.0
+offset_right = 160.5
+offset_bottom = 189.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wncbt")
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupControl/SettingsPopup"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Control2" type="VBoxContainer" parent="PopupControl/SettingsPopup/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="PopupControl/SettingsPopup/MarginContainer/Control2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupControl/SettingsPopup/MarginContainer/Control2"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 16
+
+[node name="GridContainer" type="HBoxContainer" parent="PopupControl/SettingsPopup/MarginContainer/Control2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="PopupControl/SettingsPopup/MarginContainer/Control2/VBoxContainer/GridContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Music
+"
+justification_flags = 161
+
+[node name="HSlider" type="HSlider" parent="PopupControl/SettingsPopup/MarginContainer/Control2/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 10.0
+
+[node name="GridContainer2" type="HBoxContainer" parent="PopupControl/SettingsPopup/MarginContainer/Control2/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="PopupControl/SettingsPopup/MarginContainer/Control2/VBoxContainer/GridContainer2"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "Sfx
+"
+justification_flags = 161
+
+[node name="HSlider" type="HSlider" parent="PopupControl/SettingsPopup/MarginContainer/Control2/VBoxContainer/GridContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 10.0
+
+[node name="SettingsBackButton" type="Button" parent="PopupControl/SettingsPopup/MarginContainer/Control2"]
+layout_mode = 2
+toggle_mode = true
+text = "BACK"
+
+[node name="CreditsPopup" type="PanelContainer" parent="PopupControl"]
+visible = false
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.5
+offset_top = -206.0
+offset_right = 160.5
+offset_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_wncbt")
+
+[node name="MarginContainer" type="MarginContainer" parent="PopupControl/CreditsPopup"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Control2" type="VBoxContainer" parent="PopupControl/CreditsPopup/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 48
+
+[node name="Label" type="Label" parent="PopupControl/CreditsPopup/MarginContainer/Control2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+horizontal_alignment = 1
+uppercase = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupControl/CreditsPopup/MarginContainer/Control2"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupControl/CreditsPopup/MarginContainer/Control2/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PopupControl/CreditsPopup/MarginContainer/Control2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "@name"
+
+[node name="Label2" type="Label" parent="PopupControl/CreditsPopup/MarginContainer/Control2/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "role"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PopupControl/CreditsPopup/MarginContainer/Control2/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PopupControl/CreditsPopup/MarginContainer/Control2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "@name"
+
+[node name="Label2" type="Label" parent="PopupControl/CreditsPopup/MarginContainer/Control2/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "role"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PopupControl/CreditsPopup/MarginContainer/Control2/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PopupControl/CreditsPopup/MarginContainer/Control2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "@name"
+
+[node name="Label2" type="Label" parent="PopupControl/CreditsPopup/MarginContainer/Control2/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "role"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PopupControl/CreditsPopup/MarginContainer/Control2/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PopupControl/CreditsPopup/MarginContainer/Control2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "@name"
+
+[node name="Label2" type="Label" parent="PopupControl/CreditsPopup/MarginContainer/Control2/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "role"
+
+[node name="CreditsBackButton" type="Button" parent="PopupControl/CreditsPopup/MarginContainer/Control2"]
+layout_mode = 2
+toggle_mode = true
+text = "BACK"
+
+[node name="PopupAnimationPlayer" type="AnimationPlayer" parent="PopupControl"]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_x4bqw")
+}
+speed_scale = 2.0
+
+[connection signal="pressed" from="MarginContainer/Control/Control/MarginContainer/VBoxContainer2/HBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/Control/Control/MarginContainer/VBoxContainer2/HBoxContainer/CreditButton" to="." method="_on_credit_button_pressed"]
+[connection signal="pressed" from="PopupControl/SettingsPopup/MarginContainer/Control2/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]
+[connection signal="pressed" from="PopupControl/CreditsPopup/MarginContainer/Control2/CreditsBackButton" to="." method="_on_credits_back_button_pressed"]

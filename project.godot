@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="GWJ73TeamProject"
+run/main_scene="res://Scenes/world.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 run/max_fps=60
 config/icon="res://Sprites/icon.svg"
+
+[autoload]
+
+SceneTransition="*res://Scenes/ui/scene_transition.tscn"
 
 [display]
 
