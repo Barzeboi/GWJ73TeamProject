@@ -34,6 +34,10 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSet" id="TileSet_3wrr4"]
 tile_size = Vector2i(32, 32)
+custom_data_layer_0/name = "Normal"
+custom_data_layer_0/type = 2
+custom_data_layer_1/name = "Weapon"
+custom_data_layer_1/type = 2
 sources/0 = SubResource("TileSetAtlasSource_xwxuh")
 
 [node name="World" type="Node2D"]
