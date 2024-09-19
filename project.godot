@@ -22,8 +22,8 @@ SceneTransition="*res://Scenes/ui/scene_transition.tscn"
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=960
+window/size/viewport_width=540
+window/size/viewport_height=720
 window/stretch/mode="canvas_items"
 window/handheld/orientation=1
 

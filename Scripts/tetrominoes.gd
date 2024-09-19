@@ -48,8 +48,8 @@ var shapes := [l, t, o, z, s, i, j]
 var shapes_full := shapes.duplicate()
 
 #Grid Variables
-const COLS: int = 12
-const ROWS: int = 24
+const COLS: int = 6
+const ROWS: int = 15
 
 #TileMap variables
 @onready var board_layer: TileMapLayer = $BoardLayer
@@ -59,7 +59,7 @@ const ROWS: int = 24
 const directions := [Vector2i.LEFT, Vector2i.RIGHT, Vector2i.DOWN]
 var steps : Array
 const steps_req : int = 50
-const start_pos := Vector2i(6,1)
+const start_pos := Vector2i(4,1)
 var  cur_pos : Vector2i
 var speed : float
 #Game Piece Variables
