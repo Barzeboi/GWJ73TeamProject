@@ -1,10 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://crb7aji6n6bl4"]
+[gd_scene load_steps=6 format=3 uid="uid://crb7aji6n6bl4"]
 
 [ext_resource type="Texture2D" uid="uid://c752e1glm6g8b" path="res://Sprites/Placeholder/towertileset.png" id="1_jiqfs"]
+[ext_resource type="Texture2D" uid="uid://de25utxvjetno" path="res://Sprites/Placeholder/backgroundtileset.png" id="2_r7ums"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f262a"]
 texture = ExtResource("1_jiqfs")
 texture_region_size = Vector2i(32, 32)
+0:0/animation_columns = 4
+0:0/animation_speed = 0.5
 0:0/0 = 0
 0:1/animation_columns = 4
 0:1/animation_speed = 0.5
@@ -21,13 +24,42 @@ texture_region_size = Vector2i(32, 32)
 2:3/0 = 0
 3:2/0 = 0
 3:3/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fesg5"]
+texture = ExtResource("2_r7ums")
+texture_region_size = Vector2i(32, 32)
+0:2/animation_columns = 5
+0:2/animation_speed = 0.5
+0:2/animation_frame_0/duration = 0.1
+0:2/animation_frame_1/duration = 0.1
+0:2/animation_frame_2/duration = 0.1
+0:2/animation_frame_3/duration = 0.1
+0:2/animation_frame_4/duration = 0.1
+0:2/animation_frame_5/duration = 0.1
+0:2/animation_frame_6/duration = 0.1
+0:2/animation_frame_7/duration = 0.1
+0:2/animation_frame_8/duration = 0.1
+0:2/animation_frame_9/duration = 0.1
+0:2/animation_frame_10/duration = 0.1
+0:2/animation_frame_11/duration = 0.1
+0:2/animation_frame_12/duration = 0.1
+0:2/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_6315u"]
 sources/0 = SubResource("TileSetAtlasSource_f262a")
+sources/1 = SubResource("TileSetAtlasSource_fesg5")
 
 [node name="test_anim" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_6315u")
 format = 2
-layer_0/tile_data = PackedInt32Array(65537, 0, 1, 196609, 0, 2, 327681, 0, 3, 458753, 65536, 2, 458755, 196608, 3)
+layer_0/tile_data = PackedInt32Array(131076, 0, 1, 262148, 0, 2, 262150, 65536, 2, 262146, 196608, 3, 393220, 0, 3, 262157, 0, 2, 393229, 0, 3, 524301, 65536, 2, 524303, 131072, 3, 131085, 0, 1, 786440, 196608, 0, 786438, 131072, 2, 917512, 196608, 2, 917514, 131072, 0, 589825, 1, 2, 589827, 1, 2, 589829, 1, 2, 589831, 1, 2, 458753, 1, 1, 458755, 65537, 1, 458757, 131073, 1, 458759, 196609, 1, 458761, 262145, 1, 589833, 1, 2, 786442, 65536, 0)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ccwpvwfn325l1" path="res://Sprites/Placeholder/Tetrominoes.png" id="2_xuedd"]
 [ext_resource type="Script" path="res://Scripts/tetrominoes.gd" id="3_3fpvb"]
-[ext_resource type="PackedScene" path="res://Scenes/hud.tscn" id="4_8kd1b"]
+[ext_resource type="PackedScene" uid="uid://c7wqitr4f2eqb" path="res://Scenes/hud.tscn" id="4_8kd1b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7erk4"]
 texture = ExtResource("2_xuedd")
