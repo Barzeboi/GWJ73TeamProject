@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c752e1glm6g8b"
-path="res://.godot/imported/towertileset.png-0c40c1ddce753bdf2487dc8ab5068d5d.ctex"
+uid="uid://dgoc1cc7m3gb"
+path="res://.godot/imported/fish.png-6cc5b3fb6dd6f470b50c605c07a0848c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Placeholder/towertileset.png"
-dest_files=["res://.godot/imported/towertileset.png-0c40c1ddce753bdf2487dc8ab5068d5d.ctex"]
+source_file="res://Sprites/fish.png"
+dest_files=["res://.godot/imported/fish.png-6cc5b3fb6dd6f470b50c605c07a0848c.ctex"]
 
 [params]
 

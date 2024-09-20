@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cceova8hhynau"
-path="res://.godot/imported/towertileset.png-f087499b17773eacc86da34856ee2b59.ctex"
+uid="uid://2i6ip426bgp2"
+path="res://.godot/imported/detailstileset.png-93e4ed96ac782dde0e8aa93fdb76609b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/towertileset.png"
-dest_files=["res://.godot/imported/towertileset.png-f087499b17773eacc86da34856ee2b59.ctex"]
+source_file="res://Sprites/detailstileset.png"
+dest_files=["res://.godot/imported/detailstileset.png-93e4ed96ac782dde0e8aa93fdb76609b.ctex"]
 
 [params]
 
