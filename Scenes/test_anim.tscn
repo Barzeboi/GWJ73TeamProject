@@ -1,11 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://crb7aji6n6bl4"]
+[gd_scene load_steps=18 format=3 uid="uid://crb7aji6n6bl4"]
 
 [ext_resource type="Texture2D" uid="uid://c752e1glm6g8b" path="res://Sprites/towertileset.png" id="1_jiqfs"]
 [ext_resource type="Texture2D" uid="uid://de25utxvjetno" path="res://Sprites/backgroundtileset.png" id="2_r7ums"]
 [ext_resource type="Texture2D" uid="uid://2i6ip426bgp2" path="res://Sprites/detailstileset.png" id="3_ombms"]
-[ext_resource type="Texture2D" uid="uid://dgoc1cc7m3gb" path="res://Sprites/fish.png" id="4_4tiop"]
 [ext_resource type="Texture2D" uid="uid://bpfdfetnj57yp" path="res://Sprites/outsidewalls.png" id="4_of4go"]
-[ext_resource type="Texture2D" uid="uid://5dksxtknhn53" path="res://Sprites/fishbody.png" id="5_tpv2h"]
+[ext_resource type="Texture2D" uid="uid://c0ldiabfrun2c" path="res://Sprites/enemy1.png" id="6_aywbl"]
+[ext_resource type="Texture2D" uid="uid://b4pgn0ptiklsw" path="res://Sprites/projectiles.png" id="7_fkww8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_11fy4"]
 texture = ExtResource("1_jiqfs")
@@ -90,89 +90,166 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_m2rgs"]
 sources/0 = SubResource("TileSetAtlasSource_b4mcx")
 
-[sub_resource type="Animation" id="Animation_gc7ac"]
+[sub_resource type="Animation" id="Animation_7yk06"]
+resource_name = "shoot"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Projectiles:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 2, 3, 4, 5, 6, 7, 8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Projectiles:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Projectiles:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0.735, 0.39), Vector2(-0.95, -0.455), Vector2(0.525, 1.025), Vector2(-0.925, -0.77), Vector2(0.155, 1.105), Vector2(-0.655, -0.535), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_80oxb"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("fish shadow:position")
+tracks/0/path = NodePath("Projectiles:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(241, 347)]
+"update": 1,
+"values": [0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("fish body:position")
+tracks/1/path = NodePath("Projectiles:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(255, 337)]
+"update": 1,
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("fish body:rotation")
+tracks/2/path = NodePath("Projectiles:offset")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("enemy:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("enemy:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("enemy:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("enemy:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(249, 276)]
+}
 
-[sub_resource type="Animation" id="Animation_3mpn5"]
-resource_name = "fish_move"
-length = 1.5
+[sub_resource type="Animation" id="Animation_30bw0"]
+resource_name = "enemy_walk"
+length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("fish shadow:position")
+tracks/0/path = NodePath("enemy:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(-0.0333333, 1.5),
+"times": PackedFloat32Array(0, 0.133333),
 "transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(241, 347), Vector2(480, 347)]
+"update": 1,
+"values": [1, 2]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("fish body:position")
+tracks/1/path = NodePath("enemy:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(-0.0333333, 0.266667, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(244.63, 337), Vector2(290.33, 326.92), Vector2(342.9, 338.425)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("fish body:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(-0.0333333, 0.3, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, 0.708604, 1.06291]
+"values": [0.0, 0.0872665, 0.0, -0.15708, 0.0]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fswk7"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_acff7"]
 _data = {
-"RESET": SubResource("Animation_gc7ac"),
-"fish_move": SubResource("Animation_3mpn5")
+"RESET": SubResource("Animation_80oxb"),
+"enemy_walk": SubResource("Animation_30bw0"),
+"shoot": SubResource("Animation_7yk06")
 }
 
 [node name="test_anim" type="Node2D"]
@@ -181,7 +258,7 @@ position = Vector2(0, 115)
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_6315u")
 format = 2
-layer_0/tile_data = PackedInt32Array(1179663, 1, 0, 1179665, 65537, 0, 1179667, 131073, 0, 1179669, 196609, 0, 1179671, 262145, 0, 1310735, 1, 1, 1310736, 1, 1, 1310737, 1, 1, 1310738, 1, 1, 1310739, 1, 1, 1310740, 1, 1, 1310741, 1, 1, 1310742, 1, 1, 1310743, 1, 1, 1179673, 131073, 0, 1179675, 196609, 0, 1179677, 65537, 0, 1310745, 1, 1, 1310746, 1, 1, 1310747, 1, 1, 1310748, 1, 1, 1310749, 1, 1, 1441807, 131073, 4, 1441809, 131073, 4, 1441811, 131073, 4, 1441813, 131073, 4, 1441815, 131073, 4, 1441817, 131073, 4, 1441819, 131073, 4, 1441821, 131073, 4, 1048593, 0, 3, 917521, 65536, 2, 786449, 196608, 0, 655377, 0, 1, 1048595, 196608, 3, 1048600, 196608, 3, 917528, 0, 2, 786456, 131072, 0, 917530, 0, 3, 1048602, 131072, 3, 1048604, 196608, 0, 917532, 65536, 3, 786454, 131072, 0, 786460, 65536, 3, 655384, 196608, 2, 655382, 131072, 2, 524310, 0, 2, 393238, 0, 1, 1048591, 196608, 3, 917519, 0, 3, 786447, 196608, 0, 655375, 131072, 3, 524303, 0, 1, 786458, 131072, 2, 655386, 196608, 0, 524314, 131072, 0, 655388, 0, 3, 393242, 0, 1, 65554, 65536, 2, 196626, 0, 3, 327698, 196608, 0, 65556, 131072, 2)
+layer_0/tile_data = PackedInt32Array(1179663, 1, 0, 1179665, 65537, 0, 1179667, 131073, 0, 1179669, 196609, 0, 1179671, 262145, 0, 1310735, 1, 1, 1310736, 1, 1, 1310737, 1, 1, 1310738, 1, 1, 1310739, 1, 1, 1310740, 1, 1, 1310741, 1, 1, 1310742, 1, 1, 1310743, 1, 1, 1179673, 131073, 0, 1179675, 196609, 0, 1179677, 65537, 0, 1310745, 1, 1, 1310746, 1, 1, 1310747, 1, 1, 1310748, 1, 1, 1310749, 1, 1, 1441807, 131073, 4, 1441809, 131073, 4, 1441811, 131073, 4, 1441813, 131073, 4, 1441815, 131073, 4, 1441817, 131073, 4, 1441819, 131073, 4, 1441821, 131073, 4, 1048593, 0, 3, 917521, 65536, 0, 786449, 196608, 0, 655377, 0, 1, 1048595, 196608, 3, 1048600, 65536, 0, 917528, 0, 2, 786456, 131072, 0, 917530, 0, 3, 1048602, 131072, 3, 1048604, 196608, 0, 917532, 65536, 0, 786454, 131072, 0, 786460, 65536, 0, 655384, 196608, 2, 655382, 65536, 0, 524310, 0, 2, 393238, 0, 1, 1048591, 65536, 0, 917519, 0, 3, 786447, 196608, 0, 655375, 131072, 3, 524303, 0, 1, 786458, 131072, 2, 655386, 196608, 0, 524314, 131072, 0, 655388, 0, 3, 393242, 0, 1, 65554, 65536, 2, 196626, 0, 3, 327698, 196608, 0, 65556, 65536, 0)
 
 [node name="TileMap2" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_kklob")
@@ -193,18 +270,21 @@ tile_set = SubResource("TileSet_m2rgs")
 format = 2
 layer_0/tile_data = PackedInt32Array(1048589, 65536, 2, 917517, 65536, 3, 786445, 0, 4, 655373, 65536, 3, 524301, 65536, 2, 393229, 0, 3, 1179661, 0, 4, 1310733, 65536, 2, 1441805, 0, 2, 1572877, 65536, 3, 1572879, 0, 4, 1572881, 0, 3, 1572883, 65536, 3, 1572885, 65536, 3, 1572887, 65536, 2, 1572889, 0, 2, 1572891, 0, 3, 1572893, 65536, 3, 1572895, 65536, 2, 1441823, 65536, 3, 1310751, 65536, 3, 1179679, 0, 2, 1048607, 0, 4, 917535, 0, 3, 786463, 0, 4, 655391, 65536, 2, 524319, 65536, 3, 393247, 0, 2, 262175, 0, 3, 131103, 65536, 3, 31, 0, 2, -131041, 65536, 2, -131043, 65536, 3, -131045, 65536, 3, -131047, 65536, 3, -131049, 0, 3, -131051, 0, 4, -131053, 0, 4, -131055, 65536, 2, -131057, 0, 2, -131059, 0, 3, 13, 65536, 3, 131085, 0, 3, 262157, 65536, 2, -262131, 0, 1, -262113, 0, 1)
 
-[node name="fish shadow" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(241, 347)
-texture = ExtResource("4_4tiop")
-
-[node name="fish body" type="Sprite2D" parent="."]
-visible = false
-modulate = Color(0.877616, 0.877616, 0.877616, 1)
-position = Vector2(255, 337)
-texture = ExtResource("5_tpv2h")
-
-[node name="AnimationTree" type="AnimationTree" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_fswk7")
+"": SubResource("AnimationLibrary_acff7")
 }
+
+[node name="Projectiles" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(281, 240)
+texture = ExtResource("7_fkww8")
+hframes = 4
+vframes = 4
+
+[node name="enemy" type="Sprite2D" parent="."]
+position = Vector2(249, 276)
+texture = ExtResource("6_aywbl")
+hframes = 2
+vframes = 2
+frame = 1
