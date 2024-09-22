@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://dok8k8j4xt1ey"]
+
+[ext_resource type="Script" path="res://_second/scripts/block.gd" id="1_d5yxi"]
+[ext_resource type="Resource" uid="uid://84iosxm2j4xw" path="res://_second/resources/neutral_block_type.tres" id="2_l1wli"]
+[ext_resource type="Texture2D" uid="uid://ccwpvwfn325l1" path="res://Sprites/Placeholder/Tetrominoes.png" id="2_tjqge"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hjb3"]
+size = Vector2(32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rqsx"]
+atlas = ExtResource("2_tjqge")
+region = Rect2(0, 0, 32, 32)
+
+[node name="Block" type="StaticBody2D"]
+script = ExtResource("1_d5yxi")
+type = ExtResource("2_l1wli")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4hjb3")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_8rqsx")

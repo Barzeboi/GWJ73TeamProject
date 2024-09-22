@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjib15ng4b4tm"]
+
+[ext_resource type="Script" path="res://_second/scripts/z_tetrominos.gd" id="1_kl0ge"]
+
+[node name="ZTretromino" type="Node2D"]
+script = ExtResource("1_kl0ge")
+
+[node name="Markers" type="Node2D" parent="."]
+
+[node name="A" type="Marker2D" parent="Markers"]
+position = Vector2(-32, -32)
+
+[node name="B" type="Marker2D" parent="Markers"]
+position = Vector2(0, -32)
+
+[node name="O" type="Marker2D" parent="Markers"]
+
+[node name="D" type="Marker2D" parent="Markers"]
+position = Vector2(32, 0)
+
+[node name="RotationPoint" type="Marker2D" parent="."]
+
+[node name="The rotation point is always at the middle" type="Node" parent="."]
+
+[node name="The marker O will be used for placement _ Like the center of the spawning block" type="Node" parent="."]

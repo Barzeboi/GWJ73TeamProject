@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=4 uid="uid://d1hkigt1cvo7q"]
+
+[ext_resource type="Texture2D" uid="uid://d0rilnjxdcs03" path="res://Sprites/Placeholder/Board.png" id="1_m3lh1"]
+[ext_resource type="PackedScene" uid="uid://cjib15ng4b4tm" path="res://_second/scenes/z_tetrominos.tscn" id="2_lywa7"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6jvx7"]
+texture = ExtResource("1_m3lh1")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_bak7b"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_6jvx7")
+
+[node name="Game" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAASABYAAQAAAAAAAAASABUAAQAAAAAAAAASABQAAQAAAAAAAAASABMAAQAAAAAAAAASABIAAQAAAAAAAAASABEAAQAAAAAAAAASABAAAQAAAAAAAAASAA8AAQAAAAAAAAASAA4AAQAAAAAAAAASAA0AAQAAAAAAAAASAAwAAQAAAAAAAAASAAsAAQAAAAAAAAASAAoAAQAAAAAAAAASAAkAAQAAAAAAAAASAAgAAQAAAAAAAAASAAcAAQAAAAAAAAASAAYAAQAAAAAAAAAEABYAAQAAAAAAAAAEABUAAQAAAAAAAAAEABQAAQAAAAAAAAAEABMAAQAAAAAAAAAEABIAAQAAAAAAAAAEABEAAQAAAAAAAAAEABAAAQAAAAAAAAAEAA8AAQAAAAAAAAAEAA4AAQAAAAAAAAAEAA0AAQAAAAAAAAAEAAwAAQAAAAAAAAAEAAsAAQAAAAAAAAAEAAoAAQAAAAAAAAAEAAkAAQAAAAAAAAAEAAgAAQAAAAAAAAAEAAcAAQAAAAAAAAAEAAYAAQAAAAAAAAAFABYAAQAAAAAAAAAGABYAAQAAAAAAAAAHABYAAQAAAAAAAAAIABYAAQAAAAAAAAAJABYAAQAAAAAAAAAKABYAAQAAAAAAAAALABYAAQAAAAAAAAAMABYAAQAAAAAAAAANABYAAQAAAAAAAAAOABYAAQAAAAAAAAAPABYAAQAAAAAAAAAQABYAAQAAAAAAAAARABYAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_bak7b")
+
+[node name="ZTretromino" parent="." instance=ExtResource("2_lywa7")]
+position = Vector2(374, 143)

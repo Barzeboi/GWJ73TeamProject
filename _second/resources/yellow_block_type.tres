@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="BlockType" load_steps=4 format=3 uid="uid://0ggfn61eeilr"]
+
+[ext_resource type="Script" path="res://_second/global_scripts/block_type.gd" id="1_3e5np"]
+[ext_resource type="Texture2D" uid="uid://ccwpvwfn325l1" path="res://Sprites/Placeholder/Tetrominoes.png" id="2_pb6pw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uwh3x"]
+resource_local_to_scene = true
+atlas = ExtResource("2_pb6pw")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_3e5np")
+texture = SubResource("AtlasTexture_uwh3x")
